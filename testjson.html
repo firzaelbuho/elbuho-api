@@ -1,0 +1,45 @@
+<html>
+
+<body>
+
+
+<div id="test"> test</div>
+<script>
+    let soal = ""
+
+
+    const a = document.getElementById("test")
+    
+    a.innerHTML = "INSERT INTO soal (question, opta, optb, optc,optd,opte, answer,cat) VALUES"
+    fetch("https://firzaelbuho.github.io/api/soal.json")
+    .then((response => response.json()))
+    .then(data=>{
+        setup(data)
+        soal = data
+    })
+
+    function setup(data){
+
+       
+    
+
+    var b = [1,2,3]
+    const c = b.length
+    
+    data.forEach(element => {
+        a.innerHTML += "\n ("
+        a.innerHTML += `"${element.question}" , "${element.opta}" ,"${element.optb}" ,"${element.optc}" ,"${element.optd}" ,"${element.opte}" ,"${element.key}" ,"${element.cat}"`
+        a.innerHTML += "), "
+    });
+
+    }
+
+  
+    
+
+</script>
+</body>
+
+
+
+</html>
